@@ -1,0 +1,33 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  NODE_VERSION: "22"
+
+build:
+  stage: build
+  image: node:${NODE_VERSION}-slim
+  script:
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 hour
+
+deploy:
+  stage: deploy
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache openssh-client rsync
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - ssh-keyscan -H "$VDS_HOST" >> ~/.ssh/known_hosts
+  script:
+    - rsync -avz --delete dist/ "${VDS_USER}@${VDS_HOST}:${VDS_PATH}/"
+  environment:
+    name: production
+  only:
+    - main
