@@ -14,7 +14,7 @@ const skillGroups = computed<SkillGroup[]>(() => [
   { label: t('skills.frameworks'), skills: ['Vue 2/3', 'Nuxt 2/3/4', 'React', 'Flutter', 'Alpine.js'] },
   { label: t('skills.state'), skills: ['Pinia', 'Vuex', 'Redux Toolkit'] },
   { label: t('skills.styling'), skills: ['Tailwind CSS', 'SASS', 'LESS', 'Nuxt UI', 'Reka UI', 'shadcn'] },
-  { label: t('skills.tools'), skills: ['Git', 'Docker', 'Webpack', 'ESLint', 'Prettier', 'StoryBook'] },
+  { label: t('skills.tools'), skills: ['Git', 'Docker', 'Webpack', 'ESLint', 'Prettier', 'StoryBook', 'FFmpeg', 'Figma', 'Vite'] },
   { label: t('skills.api'), skills: ['REST API', 'Axios', 'OpenAPI', 'FastAPI', 'JWT', 'OAuth'] },
   { label: t('skills.langs'), skills: ['Русский — родной', 'Английский — B1'] },
 ])
