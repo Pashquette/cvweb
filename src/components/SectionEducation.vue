@@ -111,7 +111,7 @@ const education = computed<Education[]>(() => [
                     </div>
                 </div>
 
-                <div>
+                <!-- <div>
                     <h3
                         class="text-sm font-semibold mb-6"
                         style="color: var(--color-text-primary)"
@@ -152,7 +152,7 @@ const education = computed<Education[]>(() => [
                             </p>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>

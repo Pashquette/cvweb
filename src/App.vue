@@ -15,7 +15,7 @@ useReveal();
             <SectionHero />
             <SectionAbout />
             <SectionExperience />
-            <!-- <SectionEducation /> -->
+            <SectionEducation />
             <SectionSkills />
             <SectionContacts />
         </main>

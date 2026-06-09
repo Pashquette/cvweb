@@ -1,11 +1,25 @@
 <script setup lang="ts">
 import { useT } from "../locales";
+import { ref, onMounted, onUnmounted } from "vue";
+
 const t = useT();
+const scrollOpacity = ref(1);
+
+function onScroll() {
+    const y = window.scrollY;
+    // Плавно исчезает к 120px скролла
+    scrollOpacity.value = Math.max(0, 1 - y / 120);
+}
+
+onMounted(() => window.addEventListener("scroll", onScroll, { passive: true }));
+onUnmounted(() => window.removeEventListener("scroll", onScroll));
 </script>
 
 <template>
-    <section class="min-h-screen flex items-center pt-16">
-        <div>
+    <section
+        class="min-h-[calc(100vh-4rem)] flex flex-col justify-between relative py-16"
+    >
+        <div class="flex-1 flex flex-col justify-center">
             <p
                 class="hero-subtitle text-xs mb-4 tracking-widest uppercase"
                 style="color: var(--color-accent)"
@@ -54,6 +68,31 @@ const t = useT();
                 </a>
             </div>
         </div>
+
+        <!-- Scroll indicator -->
+        <div
+            class="scroll-arrow absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 transition-opacity duration-300 pointer-events-none z-10"
+            :style="{ opacity: scrollOpacity }"
+        >
+            <span
+                class="text-xs tracking-[0.2em] uppercase"
+                style="color: var(--color-text-muted)"
+                >scroll</span
+            >
+            <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                style="color: var(--color-text-muted)"
+            >
+                <path d="M12 5v14M5 12l7 7 7-7" />
+            </svg>
+        </div>
     </section>
 </template>
 
@@ -85,6 +124,16 @@ const t = useT();
     }
     50% {
         opacity: 0;
+    }
+}
+
+@keyframes bounce-arrow {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(4px);
     }
 }
 
@@ -127,6 +176,10 @@ const t = useT();
     opacity: 0;
     animation: fade-up 0.35s ease forwards;
     animation-delay: 1.7s;
+}
+
+.scroll-arrow svg {
+    animation: bounce-arrow 1.5s ease-in-out infinite;
 }
 
 a:first-child:hover {

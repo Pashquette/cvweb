@@ -32,8 +32,8 @@ export const translations = {
     "about.fact1.label": { ru: "Опыт во Frontend", en: "Frontend Experience" },
     "about.fact1.value": { ru: "4 года", en: "4 years" },
     "about.fact2.label": {
-        ru: "Проектов в продакшн",
-        en: "Projects in Production",
+        ru: "Проектов с нуля в продакшн",
+        en: "Projects from scratch to production",
     },
     "about.fact2.value": { ru: "5", en: "5" },
     "about.fact3.label": {
