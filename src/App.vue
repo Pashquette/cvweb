@@ -4,7 +4,7 @@ useReveal();
 
 <template>
     <div
-        class="min-h-screen transition-colors duration-300"
+        class="min-h-screen transition-colors duration-300 noise-wrapper"
         style="
             background: var(--color-bg-primary);
             color: var(--color-text-primary);

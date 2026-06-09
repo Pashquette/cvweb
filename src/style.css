@@ -147,6 +147,65 @@ section[id].revealed {
   transform: translateY(0);
 }
 
+/* ===== Dot grid background ===== */
+.noise-wrapper::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: radial-gradient(circle, var(--color-text-muted) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.35;
+}
+
+html.dark .noise-wrapper::after {
+  opacity: 0.2;
+}
+
+/* ===== Parallax hero ===== */
+.hero-parallax-layer {
+  will-change: transform;
+  transition: transform 0.05s linear;
+}
+
+/* ===== Gradient glow on card hover ===== */
+.glow-card {
+  position: relative;
+  border-radius: 12px;
+  background: var(--color-bg-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glow-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 13px;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    var(--color-accent) 50%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.glow-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px -4px var(--color-accent-subtle);
+}
+
+.glow-card:hover::before {
+  opacity: 1;
+}
+
 /* ===== Utility color classes ===== */
 .bg-primary { background-color: var(--color-bg-primary); }
 .bg-card { background-color: var(--color-bg-card); }
