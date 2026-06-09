@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+/* ===== Цветовая схема ===== */
+:root {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #fafafa;
+  --color-bg-card: #ffffff;
+  --color-bg-card-hover: #fff1f2;
+  --color-bg-tag: #fff1f2;
+
+  --color-text-primary: #171717;
+  --color-text-secondary: #525252;
+  --color-text-muted: #a3a3a3;
+
+  --color-accent: #fb7185;
+  --color-accent-hover: #f43f5e;
+  --color-accent-subtle: #ffe4e6;
+  --color-accent-border: #ffe4e6;
+
+  --color-border: #ffe4e6;
+  --color-border-strong: #fecdd3;
+
+  --color-dot: #fecdd3;
+
+  --color-btn-bg: #fb7185;
+  --color-btn-text: #ffffff;
+  --color-btn-hover: #f43f5e;
+  --color-outline-border: #e5e5e5;
+  --color-outline-text: #525252;
+  --color-outline-hover-border: #fecdd3;
+
+  --color-timeline-border: #ffe4e6;
+  --color-timeline-hover: #fb7185;
+  --color-timeline-dot: #fecdd3;
+
+  --color-toggle-hover: #fff1f2;
+
+  color-scheme: light;
+}
+
+html.dark {
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #141414;
+  --color-bg-card: #141414;
+  --color-bg-card-hover: #1c1017;
+  --color-bg-tag: #1c1017;
+
+  --color-text-primary: #fafafa;
+  --color-text-secondary: #a3a3a3;
+  --color-text-muted: #525252;
+
+  --color-accent: #fb7185;
+  --color-accent-hover: #fda4af;
+  --color-accent-subtle: #1c1017;
+  --color-accent-border: #3b1f2a;
+
+  --color-border: #3b1f2a;
+  --color-border-strong: #5c2a3b;
+
+  --color-dot: #5c2a3b;
+
+  --color-btn-bg: #fb7185;
+  --color-btn-text: #0a0a0a;
+  --color-btn-hover: #fda4af;
+  --color-outline-border: #262626;
+  --color-outline-text: #a3a3a3;
+  --color-outline-hover-border: #5c2a3b;
+
+  --color-timeline-border: #3b1f2a;
+  --color-timeline-hover: #fb7185;
+  --color-timeline-dot: #5c2a3b;
+
+  --color-toggle-hover: #1c1017;
+
+  color-scheme: dark;
+}
+
+/* ===== Tailwind settings ===== */
+@theme {
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@utility container {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ===== Theme toggle slide animation (from BtnToggler) ===== */
+.slide-enter-active {
+  animation: slide-in 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.slide-leave-active {
+  animation: slide-out 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-10%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(10%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+/* ===== Scroll reveal animation ===== */
+section[id] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+section[id].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Utility color classes ===== */
+.bg-primary { background-color: var(--color-bg-primary); }
+.bg-card { background-color: var(--color-bg-card); }
+.text-primary { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-muted { color: var(--color-text-muted); }
+.text-accent { color: var(--color-accent); }
+.border-accent { border-color: var(--color-border); }
