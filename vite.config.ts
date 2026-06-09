@@ -5,6 +5,7 @@ import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 
 export default defineConfig({
+  base: '/cvweb/',
   plugins: [
     vue(),
     tailwindcss(),

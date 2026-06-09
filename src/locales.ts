@@ -40,7 +40,7 @@ export const translations = {
         ru: "Общий опыт работы",
         en: "Total Work Experience",
     },
-    "about.fact3.value": { ru: "13 лет", en: "13 years" },
+    "about.fact3.value": { ru: "16 лет", en: "16 years" },
 
     // ===== Experience =====
     "exp.title": { ru: "Опыт работы", en: "Work Experience" },
@@ -215,8 +215,8 @@ export const translations = {
     // ===== Contacts =====
     "contacts.title": { ru: "Контакты", en: "Contacts" },
     "contacts.location": {
-        ru: "Москва, Россия · Готов к редким командировкам",
-        en: "Moscow, Russia · Open to occasional travel",
+        ru: "Рязань, Россия · Готов к редким командировкам",
+        en: "Ryazan, Russia · Open to occasional travel",
     },
     "contacts.phone_label": { ru: "Телефон", en: "Phone" },
 
